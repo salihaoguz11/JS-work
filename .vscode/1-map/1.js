@@ -11,19 +11,18 @@ console.log(numbers.length);
 // Yeni bir dizi oluşturur: filter() fonksiyonu, orijinal diziyi değiştirmez ve yeni bir dizi döndürür. Bu nedenle orijinal dizi bozulmaz.
 // Geriye dönen dizi, orijinal diziden daha küçük veya aynı boyutta olabilir: Çünkü filter() işlemi sonucunda, belirlediğiniz koşulu sağlayan elemanlar seçilir ve yeni bir dizi oluşturulur. Bu nedenle, yeni dizi orijinal diziden daha küçük olabilir.
 
-const sayilar = [12, 13, , 15, 18, 22, 23, 25, 27];
-const ucIleBolunen = sayilar.filter((e) => e % 3 === 0);
-console.log(ucIleBolunen); // [ 12, 15, 18, 27 ]
-console.log(sayilar); //[ 12, 13, <1 empty item>, 15, 18, 22, 23, 25, 27 ]
+// const sayilar = [12, 13, , 15, 18, 22, 23, 25, 27];
+// const ucIleBolunen = sayilar.filter((e) => e % 3 === 0);
+// console.log(ucIleBolunen); // [ 12, 15, 18, 27 ]
+// console.log(sayilar); //[ 12, 13, <1 empty item>, 15, 18, 22, 23, 25, 27 ]
 
-const ucCikar = sayilar.map((e) => e * 3);
-console.log(ucCikar); //[ 9, 10, <1 empty item>, 12, 15, 19, 20, 22, 24 ]
+// const ucCikar = sayilar.map((e) => e * 3);
+// console.log(ucCikar); //[ 9, 10, <1 empty item>, 12, 15, 19, 20, 22, 24 ]
 
+// const dizi = [3, 5, 7, '', , 'mehmet', true, false];
+// const sonuc = dizi.map((eleman, index, dizi) => {
+//     console.log(eleman, index, dizi);
+//     return eleman * 2
+// })
 
-const dizi = [3, 5, 7, '', , 'mehmet', true, false];
-const sonuc = dizi.map((eleman, index, dizi) => {
-    console.log(eleman, index, dizi);
-    return eleman * 2
-})
-
-console.log(sonuc);
+// console.log(sonuc);
