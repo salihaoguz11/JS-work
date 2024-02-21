@@ -4,33 +4,49 @@
 
 //2. What is the output of the following code block ?
 // console.log(1 < 2 < 3);
-// console.log(3 > 2 > 1);
+// console.log(3 > 2 == 1);
 
 //3. Write program to find the sum of positive numbers. But if the user enters a negative numbers, the loop ends, if the negative number entered is not added to sum
 
-//alert("merhaba dunya");
-
-// const prompt = require("prompt-sync")();
 // let sum = 0;
-
-// let number = 0;
-// while (number >= 0) {
-//   sum += number;
-//   number = parseInt(prompt("Enter a number: ")); // prompt verisi default olarak stringtir o sebeple numbera cevirmek gerekir.
+// let num;
+// for (;;) {
+//   num = parseFloat(prompt("Enter a number"));
+//   if (num < 0 || isNaN(num)) {
+//     break;
+//   }
+//   sum += num;
 // }
-// console.log(`The sum is ${sum}.`);
+// console.log("sum:", sum);
+
+// let sum = 0;
+// while (true) {
+//   let num = parseInt(prompt("Enter num"));
+//   if (num < 0 || isNaN(num)) {
+//     break;
+//   }
+//   sum += num;
+// }
+
+// let number=0;
+// while(number>=0){
+// sum+=number
+// let number = parseInt(prompt("Enter num"));
+// }
+// console.log("sum:", sum);
 
 //4. What is the output of the following code block ?
 // console.log(null == undefined); // Js convert both  same type to null. Loose equality operator.
 // console.log(typeof null); // Outputs: "object"
 // console.log(typeof undefined); // Outputs: "undefined"
+// console.log(typeof []); // Outputs: "object"
 
-// // console.log(null === undefined);//strick equality operator.
+// console.log(null === undefined); //strick equality operator.
 
-// console.log(isNaN(2 + null));//In JavaScript, when you perform arithmetic operations with null, it coerces null to 0
+//console.log(isNaN(2 + null)); //In JavaScript, when you perform arithmetic operations with null, it coerces null to 0
 
 // console.log(2 + null);
-// console.log(isNaN(2 + undefined));//When performing arithmetic operations with undefined, it results in NaN because undefined cannot be coerced into a number
+//console.log(isNaN(2 + undefined)); //When performing arithmetic operations with undefined, it results in NaN because undefined cannot be coerced into a number
 // console.log(2 + undefined);
 
 // null ? console.log("true") : console.log("false"); //n JavaScript, null is treated as falsy
@@ -42,7 +58,7 @@
 // var n = 3;
 // for (var x = 1; x <= 7; x++) {
 //   while (hash.length != count)
-//   hash += "#";
+//    hash += "#";
 //   hash += "\n";
 //   count += n;
 //   n++;
@@ -78,14 +94,28 @@
 //   })(5)
 // );
 
+// immediate function
+// (function f(n, m) {
+//   console.log(n * m);
+// })(5, 4);
+
+// const a = function () {};
+// a();
+
+// Not not operator
+// console.log(!!!0);
+// console.log(!![]);
+// console.log(!!{});
+// console.log(!!"");
+// console.log(!!2);
 //9. What is the output of the following code block ?
 
 // (function () {
 //   try {
 //     throw new Error();
 //   } catch (x) {
-//     var x = 1,
-//       y = 2;
+//     var x = 1;
+//     var y = 2;
 //     console.log(x);
 //   }
 //   console.log(x);
@@ -101,6 +131,7 @@
 // b[2] = 1;
 // console.log(b);
 // console.log(b.map((e) => 99));
+// console.log(b);
 
 //11. What is the output of the following code block ?
 
@@ -114,12 +145,12 @@
 //   }, 3000);
 // }
 // orderPizza("Vegeterian", "Cheese", function (message) {
-//   console.log(message);
+//   console.log("callback:", message);
 // });
 
 //12. What is the output of the following code block ?
 // class Employee {
-//   constructor(id, name) {
+//   constructor(id, name ) {
 //     this.id = id;
 //     this.name = name;
 //   }
@@ -135,28 +166,58 @@
 // e3.detail();
 
 //13. What is the output of the following code block ?
-// class Animal {
-//   constructor(name, weight) {
-//     this.name = name;
-//     this.weight = weight;
-//   }
-//   eat() {
-//     return `${this.name} is eating`;
-//   }
-//   sound() {
-//     return `${this.name} is says`;
-//   }
-// }
-// class Cat extends Animal {
-//   constructor(name, weight) {
+class Animal {
+  constructor(name, weight) {
+    this.name = name;
+    this.weight = weight;
+  }
+  eat() {
+    return `${this.name} is eating`;
+  }
+  sound() {
+    return `${this.name} is says`;
+  }
+}
+class Cat extends Animal {
+  constructor(name, weight) {
+    super(name, weight);
+  }
+  sound() {
+    return `${super.sound()}  Meow!`;
+  }
+  eat() {
+    return `${super.eat()}  Fish!`;
+  }
+}
+let felix = new Cat("felix", 5);
+console.log(felix.sound());
+console.log(felix.eat());
+
+class Animal {
+  constructor(name, weight) {
+    this.name = name;
+    this.weight = weight;
+  }
+  eat() {
+    return `${this.name} is eating`;
+  }
+  sound() {
+    return `${this.name} is says`;
+  }
+}
+//    class Cat extends Animal {
+//     constructor(name, weight) {
 //     super(name, weight);
-//   }
-//   sound() {
-//     return `${super.sound()}  Meow!`;
-//   }
-// }
-// let felix = new Cat("felix", 5);
-// console.log(felix.sound());
+//     }
+//     sound(){
+//     return `${this.soundFromAnimal()} Meow!`;
+//     }
+//     soundFromAnimal() {
+//        return `${this.name} is says`;
+//     }
+//    }
+//    let felix=new Cat("felix",5)
+//    console.log(felix.sound())
 
 // class Animal {
 //   constructor(name) {
@@ -176,3 +237,13 @@
 
 // let dog = new Dog('Buddy');
 // dog.speak(); // Output: Buddy barks.
+
+// const prompt = require("prompt-sync")();
+// let sum = 0;
+
+// let number = 0;
+// while (number >= 0) {
+//   sum += number;
+//   number = parseInt(prompt("Enter a number: ")); // prompt verisi default olarak stringtir o sebeple numbera cevirmek gerekir.
+// }
+// console.log(`The sum is ${sum}.`);
